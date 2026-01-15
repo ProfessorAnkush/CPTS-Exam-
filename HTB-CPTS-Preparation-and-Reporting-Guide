@@ -1,0 +1,179 @@
+# HTB Certified Penetration Testing Specialist (CPTS) – Complete Preparation & Success Guide
+
+https://www.linkedin.com/posts/professor-ankush-75b645321_cybersecurity-penetrationtesting-redteaming-activity-7416563160465293312-PfiE
+
+This repository is my personal collection of notes, strategies, resources, and especially reporting guidance for passing the **Hack The Box Certified Penetration Testing Specialist (HTB CPTS)** certification in 2025–2026.
+
+I passed CPTS after failing once (report got rejected even with 13/14 flags 😅), so everything here comes from real pain and lessons learned. This is **not** a walkthrough — it's methodology, mindset, and especially why reporting is make-or-break.
+
+**Last updated:** January 2026
+
+## Why This Repo Exists
+
+HTB CPTS is hands-down one of the toughest intermediate-level pentest certs right now.  
+Many people say it's harder than OSCP in certain ways — especially because:
+
+- 10-day practical exam on a real enterprise-like AD environment
+- You need ~12–14 flags (user + root/system)
+- **You must submit a commercial-grade professional report**
+- Even if you pwn everything, bad reporting = instant fail
+
+I saw too many talented hackers fail just because their report looked like OSCP-style bullet points or lacked executive polish. That's why 40% of this guide is about reporting.
+
+## Table of Contents
+
+1. [Exam Overview & Requirements](#exam-overview--requirements)
+2. [Prerequisites – What You Actually Need](#prerequisites--what-you-actually-need)
+3. [Study Plan – 3 to 8 Month Roadmap](#study-plan--3-to-8-month-roadmap)
+4. [Key Topics & Hardest Parts](#key-topics--hardest-parts)
+5. [Exam Strategy – During the 10 Days](#exam-strategy--during-the-10-days)
+6. [Why Reporting Skills Matter So Much](#why-reporting-skills-matter-so-much)
+7. [How to Write a Passing CPTS Report](#how-to-write-a-passing-cpts-report)
+8. [Recommended Tools & Templates](#recommended-tools--templates)
+9. [Practice Resources & Labs](#practice-resources--labs)
+10. [Common Fails & Lessons Learned](#common-fails--lessons-learned)
+11. [FAQ & Final Motivation](#faq--final-motivation)
+
+## Exam Overview & Requirements
+
+- **Format**: 10 consecutive days, black-box pentest
+- **Environment**: Enterprise simulated network (web apps → foothold → internal pivot → AD domination)
+- **Objectives**: Obtain as many flags as possible (usually need 12+/14)
+- **Submission**: Full professional report (PDF) + flags proof
+- **Grading**: Technical + Report quality (both must pass)
+- **Cost**: ~$210 voucher (after 100% Penetration Tester path)
+- **Result time**: Up to 20 business days
+- **Official page**: https://academy.hackthebox.com/preview/certifications/htb-certified-penetration-testing-specialist
+
+## Prerequisites – What You Actually Need
+
+Must complete **100%** of HTB Academy **Penetration Tester Job Role Path** (~28 modules, 1980+ cubes).  
+Especially finish these:
+
+- Documentation & Reporting
+- Attacking Enterprise Networks
+- Active Directory Enumeration & Attacks
+- **Owen** module (legendary – many say it's exam-like)
+
+If you skip any, you're wasting your voucher.
+
+## Study Plan – 3 to 8 Month Roadmap
+
+**Month 1–2** — Finish Penetration Tester path (do every lab & skill assessment)  
+**Month 3** — Re-do weak modules + start pro labs / seasons  
+**Month 4–5** — Heavy AD practice (BloodHound, Impacket, Rubeus, Certipy)  
+**Month 6** — Report writing practice (write fake reports from retired machines)  
+**Month 7+** — Simulate 5–7 day exam runs on hard AD sets
+
+Daily: 2–4 hours. Take breaks — burnout kills more attempts than skill gaps.
+
+## Key Topics & Hardest Parts
+
+- Web → Foothold (usually hard/insane difficulty web vuln chaining)
+- Pivoting & tunnelling ( chisel / ligolo-ng )
+- Windows / Linux priv esc
+- **Active Directory** (Kerberoast, AS-REP, delegation abuses, DCSync, Golden/Silver tickets)
+- Post-exploitation (credential harvesting, persistence)
+- **Outside-the-box thinking** — rarely one vuln = root
+
+## Exam Strategy – During the 10 Days
+
+1. Day 1–2: Recon everything. Don't rush foothold.
+2. Take **copious notes** from minute 1 (commands, outputs, screenshots).
+3. Use **SysReptor** or CherryTree live during exam.
+4. Chain vulns — expect rabbit holes.
+5. Sleep 7–8 hrs every night — fatigue = stupid mistakes.
+6. Days 8–10: Focus only on report writing.
+
+## Why Reporting Skills Matter So Much
+
+In real pentests, **the report is the only deliverable the client sees**.  
+A great hack with a trash report = zero business value.
+
+HTB knows this — they simulate **commercial reality**.
+
+- Bad report → client ignores findings → no fix → breach later
+- Good report → clear risk communication → budget approved → secure org
+
+CPTS tests if you're **market-ready**, not just a script kiddie who can run exploits.
+
+Many fail CPTS **not** because of flags, but because:
+
+- No executive summary
+- Screenshots too small / missing PoC code output
+- No proper risk rating (CVSS / business impact)
+- Typos, bad structure, missing remediation
+- Looks like OSCP-style wall-of-text instead of professional consulting deliverable
+
+HTB has gotten stricter — recent fails even with 14 flags if report is "not thorough enough".
+
+## How to Write a Passing CPTS Report
+
+Use **SysReptor** (official HTB template exists — highly recommended).
+
+Structure I used (passed second attempt):
+
+1. **Cover Page** – Clean, professional
+2. **Statement of Confidentiality**
+3. **Executive Summary** (non-technical, 1–2 pages, business language)
+4. **Table of Contents**
+5. **Introduction & Methodology**
+6. **Scope & Rules of Engagement**
+7. **High-Level Findings Summary** (table with severity)
+8. **Detailed Technical Findings** (one per vuln)
+   - Title
+   - Severity (Critical/High/Med/Low)
+   - CWE / CVE if applicable
+   - Affected assets
+   - Description
+   - Proof of Concept (full command + output + screenshot)
+   - Impact (business + technical)
+   - Remediation / recommendation
+   - References
+9. **Conclusion & Overall Risk**
+10. **Appendix** (full logs if needed)
+
+Tips:
+
+- Screenshots: High-res, annotated, visible text
+- Code blocks: Full commands + output (not truncated)
+- Language: Professional, no slang
+- Length: 50–90 pages usually passes (quality > quantity)
+- Proofread 3×
+
+## Recommended Tools & Templates
+
+- **SysReptor** → https://github.com/Syslifters/sysreptor (HTB CPTS template)
+- CherryTree / Obsidian for live notes
+- BloodHound CE
+- Impacket, CrackMapExec, Certipy, Rubeus
+- Chisel / SSHuttle / Ligolo-ng for pivoting
+
+## Practice Resources & Labs
+
+- HTB Pro Labs: Dante, Offshore, APTLabs
+- Retired machines: Forest, Sauna, Blackfield, etc.
+- TJNull list filtered for AD/web
+- Seasons boxes
+
+## Common Fails & Lessons Learned
+
+- Rushing report in last 2 days
+- Missing business impact explanation
+- Tiny / cropped screenshots
+- No proper chaining explanation
+- Assuming reviewer knows your thought process — spell it out
+
+## FAQ & Final Motivation
+
+**Q: Is CPTS harder than OSCP?**  
+A: Technical side — similar or harder. Reporting — much stricter.
+
+**Q: Worth it in 2026?**  
+A: Yes — respected, AD-focused, cheaper than OSCP, great learning.
+
+You got this bro — grind smart, document everything, write like you're briefing a CISO.
+
+If this helped, drop a star ⭐
+
+Good luck and ping me on linkedin.com/in/professor-ankush-75b645321

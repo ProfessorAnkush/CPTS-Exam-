@@ -8,3 +8,4 @@
 - [ ] Table of findings with severity & CVE/CWE
 - [ ] Professional tone throughout
 - [ ] PDF under 20MB, readable fonts
+https://www.linkedin.com/posts/professor-ankush-75b645321_hackthebox-htbacademy-cpts-activity-7411406089612853248-JVJ8
